@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+  display: inline-block;
+  background-image: url("mainPageBG.png");
+  background-size: cover;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  padding: 10%;
+}
+
+form, h1, h2{
+  font-size: 30px;
+  text-align: inherit;
+  width: 50%;
+  display: inline-block;
+}
+
+.temp {
+  float: right;
+}

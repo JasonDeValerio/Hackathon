@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Name Generator DB</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"> </script>
+
+</head>
+<body>
+  <div id="root">
+    <h1>Welcome to the Fantasy Name Generator Database</h1>
+    <h2>Using a continually growing database of prefixes and suffixes, this generator will create a fantasy name that suits you!</h2>
+    <form action="FantasyNameDB.php" method="post">
+      Please choose your character's gender:
+      <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" name="gender" value="female" checked="checked">Female<br>
+        <input type="radio" name="gender" value="male">Male<br>
+      </fieldset><br>
+      <input type="submit" value="Name my character!">
+    </form>
+    <br><br>
+    <fieldset>
+      <legend>Add to our Database of Prefixes and Suffixes!</legend>
+      <table>
+        <tr>
+          <td>
+            <input type="button" id="fprefix" value="First Name Prefix" title="Add a First Name Prefix" onclick="$(fpreForm).show(); $(fmsufForm).hide(); $(msufForm).hide(); $(lpreForm).hide(); $(lsufForm).hide(); var fields = document.getElementsByClassName('params'); for(let item of fields){item.value=null};"><br>
+            <input type="button" id="femsuf" value="Female First Name Suffix" title="Add a Female First Name Suffix" onclick="$(fpreForm).hide(); $(fmsufForm).show(); $(msufForm).hide(); $(lpreForm).hide(); $(lsufForm).hide(); var fields = document.getElementsByClassName('params'); for(let item of fields){item.value=null};"><br>
+            <input type="button" id="malsuf" value="Male First Name Suffix" title="Add a Male First Name Suffix" onclick="$(fpreForm).hide(); $(fmsufForm).hide(); $(msufForm).show(); $(lpreForm).hide(); $(lsufForm).hide(); var fields = document.getElementsByClassName('params'); for(let item of fields){item.value=null};"><br>
+            <input type="button" id="lprefix" value="Last Name Prefix" title="Add a Last Name Prefix" onclick="$(fpreForm).hide(); $(fmsufForm).hide(); $(msufForm).hide(); $(lpreForm).show(); $(lsufForm).hide(); var fields = document.getElementsByClassName('params'); for(let item of fields){item.value=null};"><br>
+            <input type="button" id="lsuf" value="Last Name Suffix" title="Add a Last Name Suffix" onclick="$(fpreForm).hide(); $(fmsufForm).hide(); $(msufForm).hide(); $(lpreForm).hide(); $(lsufForm).show(); var fields = document.getElementsByClassName('params'); for(let item of fields){item.value=null};"><br>
+          </td>
+          <td>
+            <form class="temp" style="display: none;" action="http://localhost/Hackathon/AddToDB.php" id="fpreForm" method="post">
+              <label for="fpreParam">Please enter a first name starter[Limit 9 characters]</label><input class="params" type="text" name="fpreParam" id="fpreParam" value="">
+              <input type="submit" value="Add to DB"><br>
+            </form>
+
+            <form class="temp" style="display: none;" action="http://localhost/Hackathon/AddToDB.php" id="fmsufForm" method="post">
+              <label for="fmsufParam">Please enter a female sounding first name ending[Limit 9 characters]</label><input class="params" type="text" name="fmsufParam" id="fmsufParam" value="">
+              <input type="submit" value="Add to DB"><br>
+            </form>
+
+            <form class="temp" style="display: none;" action="http://localhost/Hackathon/AddToDB.php" id="msufForm" method="post">
+              <label for="msufParam">Please enter a male sounding first name ending[Limit 9 characters]</label><input class="params" type="text" name="msufParam" id="msufParam" value="">
+              <input type="submit" value="Add to DB"><br>
+            </form>
+
+            <form class="temp" style="display: none;" action="http://localhost/Hackathon/AddToDB.php" id="lpreForm" method="post">
+              <label for="lpreParam">Please enter a awesome noun[Limit 9 characters]</label><input class="params" type="text" name="lpreParam" id="lpreParam" value="">
+              <input type="submit" value="Add to DB"><br>
+            </form>
+
+            <form class="temp" style="display: none;" action="http://localhost/Hackathon/AddToDB.php" id="lsufForm" method="post">
+              <label for="lsufParam">Please enter an epic verb[Limit 20 characters]</label><input class="params" type="text" name="lsufParam" id="lsufParam" value="">
+              <input type="submit" value="Add to DB"><br>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+</body>
+</html>
